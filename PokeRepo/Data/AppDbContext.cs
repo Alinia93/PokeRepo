@@ -24,7 +24,7 @@ namespace PokeRepo.Data
             .HasOne(p => p.Species)               // .HasOne - Varje Pokemon-entitet måste tillhöra EN Species
             .WithMany(s => s.Pokemons)            // .WithMany - men varje Species kan ha flera (M) Pokemon. 
             .HasForeignKey(p => p.SpeciesId)     // .HasForeignKey - Pokemon-entiteten bär på foreign key i relationen. 
-            .IsRequired()                        // .IsRequired - Varje Pokemon måste ha EN tillhörande Species. 
+            .IsRequired()                                     // .IsRequired - Varje Pokemon måste ha EN tillhörande Species. 
              .OnDelete(DeleteBehavior.Restrict); // .OnDelete - När en Species raderas ska inga relaterade Pokemon raderas. 
 
             // M:N (Pokemon-Ability) 
